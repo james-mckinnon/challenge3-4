@@ -22,6 +22,7 @@ $(document).ready(function(){
         deleting = store.indexOf(delete_data);
         store.splice(deleting, 1);
         localStorage.setItem('termsKey', JSON.stringify(store));
+        location.reload();
     });
         
 });

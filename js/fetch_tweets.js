@@ -10,7 +10,8 @@ $(document).ready(function(){
 	var callback = '&callback=?';
 
 	//console.log(search_term);
-	$.each(search_term, function(t, term){
+	if(savedString != null){
+	$.each(search_term, function(i, term){
 		//Send JSON Request
 		$.getJSON(api_url + '?q=' + term + results_num + entities + recent + lang + callback, 
 			function(data){
@@ -53,5 +54,6 @@ $(document).ready(function(){
 			$('#container').append(table_html);
 		});
 	});
+};
 });
 

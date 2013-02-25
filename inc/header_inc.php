@@ -6,12 +6,13 @@
 	<link type="text/css" rel="stylesheet" href="css/main.css" />
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
 	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/fetch_tweets.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<?php if($page = 'add'){ ?>
+	<?php if($page == 'add'){ ?>
 		<script type="text/javascript" src="js/add_func.js"></script>
-	<?php }if($page = 'delete'){ ?>
+	<?php }if($page == 'delete'){ ?>
 		<script type="text/javascript" src="js/delete_func.js"></script>
+	<?php }if($page == 'home'){ ?>
+		<script type="text/javascript" src="js/fetch_tweets.js"></script>
 	<?php } ?>
 </head>
 <body>
