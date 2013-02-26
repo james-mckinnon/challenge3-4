@@ -9,7 +9,7 @@ body {
     background-color:#8EC2DA;
     overflow:auto;
  }
-#app_contain div {
+#wrapper div {
     width:100000px;
     padding:0 10px;
  }

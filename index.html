@@ -134,15 +134,24 @@
 	<!--TWITTER API INTERFACE-->
 	<script>
 	$(document).ready(function(){
-		//Declaring Variables
-		var savedString = localStorage.getItem('termsKey');	
+		//Local Storage Variables
+		var savedString = localStorage.getItem('termsKey');
+		var	savedConf = localStorage.getItem('confData');
+		//Setting API String Variables
 		var api_url = 'http://search.twitter.com/search.json';
 		var search_term = JSON.parse(savedString);
-		var results_num = '&rpp=6';
 		var entities = '&include_entities=true';
 		var recent = '&result_type=recent';
-		var lang = '&lang=en';
 		var callback = '&callback=?';
+
+		if (savedConf){
+			var storedConf = JSON.parse(savedConf);
+			var results_num = '&rpp=' + storedConf[0];
+			var lang = '&lang=' + storedConf[1];
+		}else{
+		var results_num = '&rpp=6';
+		var lang = '&lang=en';
+		}
 
 		//console.log(search_term);
 		if(savedString != null){
@@ -249,11 +258,11 @@
     <script>
 	$(document).ready(function(){
 		$('#conf_save').click(function(){
-			var tweetNo = $('input[name="conf_items"]').val();
-			var lang = $('input[name="conf_lang"]').val();
+			var tweetNo = $('select[name="conf_items"]').val();
+			var lang = $('select[name="conf_lang"]').val();
 			var confSuccess = $('#conf_success');
 
-			if (tweets == ""){
+			if (tweetNo == ""){
 				alert("You must enter the configuration options");
 				return false;
 			}else{
@@ -266,3 +275,9 @@
        		});
 		});
 	</script>
+	<div id="footer">
+		<p>Copyright&copy; 2013 James McKinnon</p>
+		<div id="tweet_container"></div>
+	</div>
+</body>
+</html>
