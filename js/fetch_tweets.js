@@ -27,9 +27,6 @@ $(document).ready(function(){
 
 				}else{
 
-					//Setting the length of the tweets
-					if(tweet.text.length > 65){tweet.text = tweet.text.substr(0,85-3)+"...";};
-
 					//Formatting the Date/Time
 					var date_tweet = new Date(tweet.created_at).toLocaleString();
 					var date_day = date_tweet.substr(-18,2);
@@ -51,7 +48,7 @@ $(document).ready(function(){
 				}
 			});
 			table_html += '</table>';
-			$('#container').append(table_html);
+			$('#display').append(table_html);
 		});
 	});
 };
